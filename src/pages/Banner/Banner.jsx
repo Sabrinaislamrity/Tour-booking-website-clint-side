@@ -13,6 +13,10 @@ const Banner = () => {
             <h2>bb</h2>
             <h1>aaa</h1>
             <h2>bb</h2>
+            <h1>aaa</h1>
+            <h2>bb</h2>
+            <h1>aaa</h1>
+            <h2>bb</h2>
         </div>
     );
 };
