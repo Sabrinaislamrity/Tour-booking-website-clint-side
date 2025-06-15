@@ -3,9 +3,22 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../Shared/SocialLogin';
 import { FcGoogle } from "react-icons/fc";
+import { useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
   const {signIn, signInWithGoogle} = use(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate()
+  const from = location.state || '/'
+
+
+  console.log('location in login page', location);
+  
+
+
+
+
+
   const handleLogin = (e) =>{
       e.preventDefault();
     const form = e.target;
@@ -14,6 +27,7 @@ const Login = () => {
        signIn(email, password)
       .then((result) => {
         console.log("Logged in user:", result.user);
+    navigate(from);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -22,10 +36,6 @@ const Login = () => {
           timer: 1500,
         });
 
-        // Delay redirect so SweetAlert can show
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1600);
       })
       .catch((error) => {
         setError(error.code);
@@ -40,6 +50,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log("Google signed in user:", result.user);
+         navigate(from);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -48,10 +59,7 @@ const Login = () => {
           timer: 1500,
         });
 
-        // Delay redirect so SweetAlert can show
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1600);
+       
       })
       .catch((error) => {
         setError(error.code);

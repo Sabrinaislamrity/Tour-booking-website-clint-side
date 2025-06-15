@@ -40,9 +40,9 @@ const Navber = () => {
   const links = (
     <>
       <a href="/" className={linkClass('/')} onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}>Home</a>
-      <a href="/allplants" className={linkClass('/allplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/allplants'); }}>All Plants</a>
-      <a href="/addplant" className={linkClass('/addplant')} onClick={(e) => { e.preventDefault(); handleNavigation('/addplant'); }}>Add Plant</a>
-      <a href="/myplants" className={linkClass('/myplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/myplants'); }}>My Plants</a>
+      <a href="/allplants" className={linkClass('/allplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/allpackages'); }}>All Packages</a>
+      <a href="/addplant" className={linkClass('/addplant')} onClick={(e) => { e.preventDefault(); handleNavigation('/addplant'); }}>My Bookings </a>
+       <a href="/myplants" className={linkClass('/myplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/myplants'); }}>About Us </a>
     </>
   );
 
@@ -71,35 +71,47 @@ const Navber = () => {
 
       <div className="navbar-end gap-4 flex items-center">
         {/* <ThemeToggle /> */}
+{user && (
+  <div className="relative dropdown dropdown-end">
+    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+      <div className="w-12 rounded-full border-2 border-green-600">
+        <img src={user.photoURL || userIcon} alt="User" />
+      </div>
+    </div>
+    <ul
+      tabIndex={0}
+      className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+    >
+      <li className="text-center text-sm font-semibold text-green-700 py-1 border-b border-green-200">
+        <span>{user.displayName}</span>
+        <span className="text-xs text-gray-500">{user.email}</span>
+      </li>
+      <li>
+        <a href="/addplant">Add Package</a>
+      </li>
+      <li>
+        <a href="/myplants">Manage My Packages</a>
+      </li>
+      <li>
+        <a href="/myprofile">My Profile</a>
+      </li>
+      <li>
+        <button
+          onClick={handleLogOut}
+          className="mt-1 bg-red-100 hover:bg-red-200 text-red-600 font-medium px-4 py-2 rounded transition-all"
+        >
+          Log Out
+        </button>
+      </li>
+    </ul>
+  </div>
+)}
 
-        {user && (
-          <a href="/myprofile" className="relative group">
-            <img
-              src={user.photoURL || userIcon}
-              alt="User"
-              className="rounded-full w-12 h-12 cursor-pointer border-2 border-green-600"
-              title={user.displayName || 'User'}
-            />
-            {user.displayName && (
-              <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 bg-green-100 text-sm text-green-700 px-4 py-2 rounded shadow group-hover:block hidden">
-                {user.displayName}
-                <br />
-                {user.email}
-              </div>
-            )}
-          </a>
-        )}
+
 
         {user ? (
           <>
-            <button
-              onClick={handleLogOut}
-              className="relative group overflow-hidden px-6 py-2 border-2 border-green-600 bg-green-600 text-white rounded-lg shadow-md transition-all duration-300 ease-in-out hover:scale-105"
-            >
-              <span className="absolute left-0 top-0 h-full w-0 bg-green-800 transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
-              <span className="relative z-10">Log Out</span>
-            </button>
-
+           
             <button className="relative group overflow-hidden px-6 py-2 border-2 border-green-600 bg-white text-green-600 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:scale-105">
               <span className="absolute left-0 top-0 h-full w-0 bg-green-800 transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
               <span className="relative z-10 group-hover:text-white">Registered</span>
