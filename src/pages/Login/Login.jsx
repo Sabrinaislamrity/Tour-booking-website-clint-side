@@ -12,7 +12,7 @@ const Login = () => {
   const from = location.state || '/'
 
 
-  console.log('location in login page', location);
+  // console.log('location in login page', location);
   
 
 

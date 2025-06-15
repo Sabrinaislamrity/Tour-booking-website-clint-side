@@ -1,110 +1,81 @@
-import React, { use, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createUser, setUser,updateUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = useContext(AuthContext);
 
-
-
-     const [nameError, setNameError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const handleRegister = (e) =>{
-         e.preventDefault();
+  const handleRegister = (e) => {
+    e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
-    const email = form.email.value;
+    const name = form.name.value.trim();
+    const photo = form.photo.value.trim();
+    const email = form.email.value.trim();
     const password = form.password.value;
-    console.log({name,photo,email,password});
 
-
-
- if (name.length < 5) {
-      setNameError('Name should be more than 5 characters');
-      return;
-    } else {
-      setNameError('');
-    }
-
-
-
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    if (!passwordRegex.test(password)) {
-      setPasswordError(
-        'Password must have at least 1 uppercase, 1 lowercase letter, and be 6+ characters long.'
-      );
-      return;
-    } else {
-      setPasswordError('');
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-   createUser(email, password)
-    .then((result) => {
-      const user = result.user;
+    // Name Validation
+    if (name.length < 5) {
       Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Your Registration has been saved",
-  showConfirmButton: false,
-  timer: 1500
-});
+        icon: 'error',
+        title: 'Invalid Name',
+        text: 'Name should be more than 5 characters',
+      });
+      return;
+    }
 
+    // Password Validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must have at least 1 uppercase, 1 lowercase letter, and be 6+ characters long.',
+      });
+      return;
+    }
 
+    // Create User
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
 
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your registration has been saved',
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
-      updateUser({ displayName: name, photoURL: photo })
+        updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            window.location.href = '/'; // Redirect manually
+            window.location.href = '/'; // Redirect to homepage
           })
           .catch((error) => {
             console.log(error);
-            setUser(user); // Still set user in fallback
+            setUser(user); // Fallback
           });
-
-
-
-
-        // navigate(`${location.state ? location.state : "/"}`)
-      
-    })
-   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage);
-    console.log(errorCode);
-    
-    // ..
-  });
-    
-
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Registration Failed',
+          text: error.message,
+        });
+        console.error(error.code);
+      });
   };
 
-
-    return (
-      <>
-             <div className='flex justify-center h-1/2 items-center'>
+  return (
+    <div className='flex justify-center h-1/2 items-center'>
       <div className='card bg-base-100 w-full max-w-sm shadow-2xl px-3 py-5'>
         <h2 className='font-semibold text-2xl text-center mb-2'>Register Your Account</h2>
-        <form onSubmit={handleRegister}  className='card-body'>
+        <form onSubmit={handleRegister} className='card-body'>
           <fieldset className='fieldset space-y-2'>
             {/* Name */}
             <label className='label'>Your Name</label>
             <input name='name' type='text' className='input' placeholder='Name' required />
-             <p className='text-xs text-error'></p>
-              {nameError && <p className='text-xs text-error'>{nameError}</p>}
 
             {/* Photo URL */}
             <label className='label'>Photo URL</label>
@@ -117,14 +88,9 @@ const Register = () => {
             {/* Password */}
             <label className='label'>Password</label>
             <input name='password' type='password' className='input' placeholder='Password' required />
-             <p className='text-xs text-error'></p>
-              {passwordError && <p className='text-xs text-error'>{passwordError}</p>}
 
             {/* Submit */}
-
-            
             <button type='submit' className='btn btn-neutral mt-4'>Register</button>
-            
 
             {/* Redirect link */}
             <p className='font-semibold text-center'>
@@ -135,8 +101,7 @@ const Register = () => {
         </form>
       </div>
     </div>
-      </>
-    );
+  );
 };
 
 export default Register;

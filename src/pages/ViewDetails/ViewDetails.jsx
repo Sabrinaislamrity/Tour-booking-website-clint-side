@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router'; // You said "no react-router-dom" but keeping this because your data comes from loader
+import { Link, useLoaderData } from 'react-router'; // You said "no react-router-dom" but keeping this because your data comes from loader
 
 const ViewDetails = () => {
     const {
         tour_name,
+        _id,
         image,
         guide_name,
         guide_photo,
@@ -44,9 +45,13 @@ const ViewDetails = () => {
                 <p className="text-gray-600 leading-relaxed">{description}</p>
             </div>
 
-            <button className="px-6 py-3 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition">
+            <Link to={`/jobApply/${_id}`}>
+               <button className="px-6 py-3 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition">
                 Book Now
             </button>
+            </Link>
+
+         
         </div>
     );
 };

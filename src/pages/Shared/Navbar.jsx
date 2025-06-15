@@ -4,6 +4,7 @@ import Logo from '../../assets/logo.png'
 import userIcon from '../../assets/author.png';
 // import ThemeToggle from './ThemeToggle';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -25,11 +26,36 @@ const Navber = () => {
     }, 700);
   };
 
-  const handleLogOut = () => {
-    logOut()
-      .then(() => alert('Sign-out successful'))
-      .catch((error) => console.log(error));
-  };
+ const handleLogOut = () => {
+  logOut()
+    .then(() => {
+      // Swal.fire({
+      //   icon: 'success',
+      //   title: 'Logged out successfully',
+      //   showConfirmButton: false,
+      //   timer: 1500,
+      //   position: 'top-end',
+      //   toast: true,
+      // });
+
+        Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Logged out successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+    })
+    .catch((error) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Logout Failed',
+        text: error.message || 'Something went wrong!',
+      });
+      console.log(error);
+    });
+};
+
 
   const linkClass = (path) =>
     `m-4 text-sm font-medium 
@@ -41,7 +67,11 @@ const Navber = () => {
     <>
       <a href="/" className={linkClass('/')} onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}>Home</a>
       <a href="/allplants" className={linkClass('/allplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/allpackages'); }}>All Packages</a>
+      {user && <>
       <a href="/addplant" className={linkClass('/addplant')} onClick={(e) => { e.preventDefault(); handleNavigation('/addplant'); }}>My Bookings </a>
+      </>
+      
+      }
        <a href="/myplants" className={linkClass('/myplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/myplants'); }}>About Us </a>
     </>
   );
@@ -87,10 +117,10 @@ const Navber = () => {
         <span className="text-xs text-gray-500">{user.email}</span>
       </li>
       <li>
-        <a href="/addplant">Add Package</a>
+        <a href="/addpackage">Add Package</a>
       </li>
       <li>
-        <a href="/myplants">Manage My Packages</a>
+        <a href="/myPostedJobs">Manage My Packages</a>
       </li>
       <li>
         <a href="/myprofile">My Profile</a>

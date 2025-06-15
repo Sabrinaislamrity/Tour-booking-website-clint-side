@@ -10,6 +10,9 @@ import Register from "../pages/Register/Register";
 import AllPackeges from "../pages/AllPackeges/AllPackeges";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import PrivateRoute from "../provider/PrivateRoute";
+import BookNow from "../pages/BookNow/BookNow";
+import PackagesAdd from "../pages/PackagesAdd/PackagesAdd";
+import ManagePackeges from "../pages/ManagePackeges/ManagePackeges";
 
 
 const router = createBrowserRouter([
@@ -30,9 +33,40 @@ const router = createBrowserRouter([
     
 
   },
+
+  {
+    path:"/jobApply/:id",
+    element: <PrivateRoute>
+      <BookNow></BookNow>
+    </PrivateRoute>
+
+  },
+
+
+
+
         {
     path:"/allpackages",
     element:<AllPackeges></AllPackeges>,
+    
+    
+
+  },
+      {
+    path:"/addpackage",
+    element:<PrivateRoute>
+      <PackagesAdd></PackagesAdd>
+    </PrivateRoute>,
+    
+    
+
+  },
+  {
+    path:"//myPostedJobs",
+    element:<PrivateRoute>
+      <ManagePackeges></ManagePackeges>
+    </PrivateRoute>,
+    
     
 
   },
