@@ -11,7 +11,7 @@ const UpdateTure = () => {
     const tourId = urlParts[urlParts.length - 1];
     setId(tourId);
 
-    fetch(`http://localhost:3000/jobs/${tourId}`)
+    fetch(`https://server-site-drab.vercel.app/jobs/${tourId}`)
       .then((res) => res.json())
       .then((data) => setTour(data));
   }, []);
@@ -35,7 +35,7 @@ const UpdateTure = () => {
       guide_photo: form.guide_photo.value
     };
 
-    fetch(`http://localhost:3000/jobs/${id}`, {
+    fetch(`https://server-site-drab.vercel.app/jobs/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedTour)

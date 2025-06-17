@@ -1,3 +1,3 @@
 export const jobsCreatedByPromise = email =>{
-    return fetch(`http://localhost:3000/jobs?email=${email}`).then(res => res.json())
+    return fetch(`https://server-site-drab.vercel.app/jobs?email=${email}`).then(res => res.json())
 }

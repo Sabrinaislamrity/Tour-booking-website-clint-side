@@ -11,7 +11,7 @@ const BookNow = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:3000/jobs/${jobId}`)
+    fetch(`https://server-site-drab.vercel.app/jobs/${jobId}`)
       .then(res => res.json())
       .then(data => setJob(data));
   }, [jobId]);
@@ -32,7 +32,7 @@ const BookNow = () => {
       status: "pending",
     };
 
-    fetch('http://localhost:3000/applications', {
+    fetch('https://server-site-drab.vercel.app/applications', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking)

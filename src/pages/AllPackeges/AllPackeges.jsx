@@ -8,7 +8,7 @@ const AllPackeges = () => {
 
   const fetchJobs = async () => {
     setLoading(true);
-    const res = await fetch(`http://localhost:3000/jobs?search=${search}`);
+    const res = await fetch(`https://server-site-drab.vercel.app/jobs?search=${search}`);
     const data = await res.json();
     setJobs(data);
     setLoading(false);

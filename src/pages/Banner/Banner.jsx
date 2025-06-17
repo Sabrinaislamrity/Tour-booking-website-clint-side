@@ -4,7 +4,7 @@ import Banaerimg from '../../assets/pexels-ajaybhargavguduru-939729.jpg';
 const Banner = () => {
   return (
     <div
-      className="hero min-h-[70vh] bg-cover bg-center"
+      className="hero min-h-[70vh] bg-cover bg-center mt-5"
       style={{
         backgroundImage: `url(${Banaerimg})`,
       }}

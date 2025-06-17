@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const SendBook = ({ applications, setApplications }) => {
   const handleConfirm = async (bookingId) => {
     try {
-      const res = await fetch(`http://localhost:3000/applications/${bookingId}`, {
+      const res = await fetch(`https://server-site-drab.vercel.app/applications/${bookingId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'completed' }),

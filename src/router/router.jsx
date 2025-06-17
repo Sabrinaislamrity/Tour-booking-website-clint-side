@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     element: <PrivateRoute>
       <ViewDetails> </ViewDetails>
     </PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)
+    loader: ({params}) => fetch(`https://server-site-drab.vercel.app/jobs/${params.id}`)
     
 
   },
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
   },
    {
                 path: '/updateture/:id',
-                 loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`),
+                 loader: ({params}) => fetch(`https://server-site-drab.vercel.app/jobs/${params.id}`),
                  
                 Component: UpdateTure,
             },

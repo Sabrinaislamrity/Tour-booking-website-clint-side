@@ -5,7 +5,7 @@ import PopularDes from '../PopularDes/PopularDes';
 import Testimonials from '../Testimonials/Testimonials';
 
 const Home = () => {
-    const jobsPromise = fetch('http://localhost:3000/jobs').then(res => res.json())
+    const jobsPromise = fetch('https://server-site-drab.vercel.app/jobs').then(res => res.json())
     // console.log(jobsPromise);
     
     return (

@@ -16,7 +16,7 @@ const PackagesAdd = () => {
            const newJob = data;
             // save to the data base 
             
-            axios.post('http://localhost:3000/jobs', newJob)
+            axios.post('https://server-site-drab.vercel.app/jobs', newJob)
             .then(res =>{
                 if (res.data.insertedId) {
                     

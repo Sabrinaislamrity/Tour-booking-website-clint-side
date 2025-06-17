@@ -15,7 +15,7 @@ const SingleTure = ({ job, index }) => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/jobs/${_id}`, {
+        fetch(`https://server-site-drab.vercel.app/jobs/${_id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())
