@@ -5,6 +5,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from 'react-icons/fa';
+import Logo from '../../assets/logo.PNG'
 
 const Footer = () => {
   return (
@@ -12,7 +13,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo & Tagline */}
         <div>
-          <h2 className="text-2xl font-bold mb-2">🌿 PlantCare Tracker</h2>
+          <div className="flex items-center space-x-2">
+                  <img src={Logo} alt="Plant Logo" className="w-30 h-10" />
+                  <span className="text-xl font-bold text-white dark:text-white">Turo</span>
+                </div>
           <p className="text-sm">
             Helping you care for your plants with ease and joy.
           </p>

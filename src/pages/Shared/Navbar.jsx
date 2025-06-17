@@ -92,7 +92,7 @@ const Navber = () => {
         </div>
         <div className="flex items-center space-x-2">
           <img src={Logo} alt="Plant Logo" className="w-30 h-10" />
-          <span className="text-xl font-bold text-green-800 dark:text-green-300">Plantasia</span>
+          <span className="text-xl font-bold text-blue-800 dark:text-green-300">Turo</span>
         </div>
       </div>
 
