@@ -4,55 +4,65 @@ import {
   FaInstagram,
   FaTwitter,
   FaLinkedinIn,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div>
-       <footer className="bg-green-900 text-white py-10 mt-20">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Left - Website Name */}
+    <footer className="bg-green-900 text-white mt-20">
+      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Logo & Tagline */}
         <div>
-          <h3 className="text-2xl font-bold mb-2">🌱 PlantCare Tracker</h3>
+          <h2 className="text-2xl font-bold mb-2">🌿 PlantCare Tracker</h2>
           <p className="text-sm">
             Helping you care for your plants with ease and joy.
           </p>
         </div>
 
-        {/* Middle - Contact Info */}
+        {/* Address */}
         <div>
-          <h4 className="text-xl font-semibold mb-2">Contact Us</h4>
-          <p>Email: support@plantcaretracker.com</p>
+          <h3 className="text-lg font-semibold mb-2">Address</h3>
+          <p>123 Greenhouse Lane</p>
+          <p>California, USA</p>
+          <p>Email: info@plantcaretracker.com</p>
           <p>Phone: +1 (555) 123-4567</p>
-          <p>Location: California, USA</p>
         </div>
 
-        {/* Right - Social Media */}
+        {/* Links */}
         <div>
-          <h4 className="text-xl font-semibold mb-2">Follow Us</h4>
+          <h3 className="text-lg font-semibold mb-2">Useful Links</h3>
+          <ul className="space-y-1 text-sm">
+            <li><a href="#" className="hover:text-green-300">Home</a></li>
+            <li><a href="#" className="hover:text-green-300">About Us</a></li>
+            <li><a href="#" className="hover:text-green-300">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-green-300">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
           <div className="flex gap-4 mt-2">
-            <a href="#" aria-label="Facebook" className="hover:text-green-300">
+            <a href="#" className="hover:text-green-300" aria-label="Facebook">
               <FaFacebookF size={20} />
             </a>
-            <a href="#" aria-label="Instagram" className="hover:text-green-300">
+            <a href="#" className="hover:text-green-300" aria-label="Instagram">
               <FaInstagram size={20} />
             </a>
-            <a href="#" aria-label="Twitter" className="hover:text-green-300">
+            <a href="#" className="hover:text-green-300" aria-label="Twitter">
               <FaTwitter size={20} />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-green-300">
+            <a href="#" className="hover:text-green-300" aria-label="LinkedIn">
               <FaLinkedinIn size={20} />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="text-center text-sm mt-10 border-t border-green-800 pt-4">
+      {/* Bottom Bar */}
+      <div className="text-center text-sm py-4 border-t border-green-800">
         &copy; {new Date().getFullYear()} PlantCare Tracker. All rights reserved.
       </div>
     </footer>
-    </div>
   );
 };
 

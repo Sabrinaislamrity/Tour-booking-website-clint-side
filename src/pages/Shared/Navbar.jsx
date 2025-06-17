@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Logo from '../../assets/logo.png'
 
 import userIcon from '../../assets/author.png';
-// import ThemeToggle from './ThemeToggle';
+
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -66,13 +67,13 @@ const Navber = () => {
   const links = (
     <>
       <a href="/" className={linkClass('/')} onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}>Home</a>
-      <a href="/allplants" className={linkClass('/allplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/allpackages'); }}>All Packages</a>
+      <a href="/allpackages" className={linkClass('/allpackages')} onClick={(e) => { e.preventDefault(); handleNavigation('/allpackages'); }}>All Packages</a>
       {user && <>
-      <a href="/addplant" className={linkClass('/addplant')} onClick={(e) => { e.preventDefault(); handleNavigation('/addplant'); }}>My Bookings </a>
+      <a href="/mybookings" className={linkClass('/mybookings')} onClick={(e) => { e.preventDefault(); handleNavigation('/mybookings'); }}>My Bookings </a>
       </>
       
       }
-       <a href="/myplants" className={linkClass('/myplants')} onClick={(e) => { e.preventDefault(); handleNavigation('/myplants'); }}>About Us </a>
+       <a href="/aboutus" className={linkClass('/aboutus')} onClick={(e) => { e.preventDefault(); handleNavigation('/aboutus'); }}>About Us </a>
     </>
   );
 
@@ -100,7 +101,7 @@ const Navber = () => {
       </div>
 
       <div className="navbar-end gap-4 flex items-center">
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
 {user && (
   <div className="relative dropdown dropdown-end">
     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -121,9 +122,6 @@ const Navber = () => {
       </li>
       <li>
         <a href="/myPostedJobs">Manage My Packages</a>
-      </li>
-      <li>
-        <a href="/myprofile">My Profile</a>
       </li>
       <li>
         <button

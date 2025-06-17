@@ -13,6 +13,10 @@ import PrivateRoute from "../provider/PrivateRoute";
 import BookNow from "../pages/BookNow/BookNow";
 import PackagesAdd from "../pages/PackagesAdd/PackagesAdd";
 import ManagePackeges from "../pages/ManagePackeges/ManagePackeges";
+import MyBookings from "../pages/MyBookings/MyBookings";
+import SendBook from "../pages/SendBook/SendBook";
+import UpdateTure from "../pages/UpdateTure/UpdateTure";
+import Aboutus from "../pages/Aboutus/Aboutus";
 
 
 const router = createBrowserRouter([
@@ -52,6 +56,13 @@ const router = createBrowserRouter([
     
 
   },
+     {
+    path:"/aboutus",
+    element:<Aboutus></Aboutus>,
+    
+    
+
+  },
       {
     path:"/addpackage",
     element:<PrivateRoute>
@@ -61,10 +72,25 @@ const router = createBrowserRouter([
     
 
   },
+   {
+                path: '/updateture/:id',
+                 loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`),
+                 
+                Component: UpdateTure,
+            },
   {
-    path:"//myPostedJobs",
+    path:"/myPostedJobs",
     element:<PrivateRoute>
       <ManagePackeges></ManagePackeges>
+    </PrivateRoute>,
+    
+    
+
+  },
+   {
+    path:"/mybookings",
+    element:<PrivateRoute>
+    <MyBookings></MyBookings>
     </PrivateRoute>,
     
     

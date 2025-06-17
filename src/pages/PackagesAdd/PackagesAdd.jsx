@@ -100,7 +100,7 @@ const PackagesAdd = () => {
         {/* Package Details */}
         <fieldset className="border border-gray-300 rounded-xl p-4 bg-base-100 md:col-span-2">
           <label className="block text-sm font-medium mb-2">Package Details</label>
-          <textarea name="package_details" placeholder="Write package details..." className="textarea textarea-bordered w-full" rows="3" required></textarea>
+          <textarea name="description" placeholder="Write package details..." className="textarea textarea-bordered w-full" rows="3" required></textarea>
         </fieldset>
 
         {/* Contact No. */}

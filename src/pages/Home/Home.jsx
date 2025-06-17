@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import Banner from '../Banner/Banner';
 import Featured from '../Featured/Featured';
+import PopularDes from '../PopularDes/PopularDes';
+import Testimonials from '../Testimonials/Testimonials';
 
 const Home = () => {
     const jobsPromise = fetch('http://localhost:3000/jobs').then(res => res.json())
@@ -18,6 +20,8 @@ const Home = () => {
       >
         <Featured jobsPromise={jobsPromise} />
       </Suspense>
+      <PopularDes></PopularDes>
+      <Testimonials></Testimonials>
     </div>
     );
 };
