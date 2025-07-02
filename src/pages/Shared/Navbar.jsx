@@ -5,7 +5,7 @@ import userIcon from '../../assets/author.png';
 
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
+// import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -101,7 +101,7 @@ const Navber = () => {
       </div>
 
       <div className="navbar-end gap-4 flex items-center">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
 {user && (
   <div className="relative dropdown dropdown-end">
     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
