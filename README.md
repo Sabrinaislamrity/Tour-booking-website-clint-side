@@ -63,7 +63,7 @@ Edit
 ## 📦 Installation (Local Setup)
 
 1. Clone the repository:
-git clone https://github.com/your-username/tour-booking-app.git
+git clone https://assingment-11-clint-side.web.app/
 cd tour-booking-app
 
 markdown
@@ -110,7 +110,7 @@ Edit
 ✉️ sabrinaislamrity@gmail.com  
 📞 +8801869670330  
 🌍 Dhaka, Bangladesh  
-🔗 [GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
+🔗 [GitHub](https://github.com/Sabrinaislamrity) | [LinkedIn](https://www.linkedin.com/in/sabrina-islam-rity/)
 
 ---
 
