@@ -1,12 +1,120 @@
-# React + Vite
+# 🌍 Tour Booking Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured **MERN stack** application that allows users to explore, book, manage, and cancel tour packages with secure authentication and an intuitive dashboard interface.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
+[Click Here to Visit the Live Site](https://assingment-11-clint-side.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 **User & Admin Authentication** (Firebase + JWT)
+- 🧳 **Tour Booking & Cancellation**
+- 📝 **Add & Manage Tour Packages**
+- 📊 **Admin Dashboard** for managing tours and users
+- 🔍 **Responsive UI** with Tailwind CSS & DaisyUI
+- 📁 **Protected Routes** and role-based access
+
+---
+
+## 🛠 Tech Stack
+
+### 💻 Frontend:
+- React.js
+- React Router
+- Tailwind CSS & DaisyUI
+- Firebase Authentication
+- SweetAlert2
+
+### 🌐 Backend:
+- Node.js
+- Express.js
+- MongoDB
+- JWT for secured API access
+
+---
+
+## 📂 Folder Structure (Client Side)
+
+src/
+├── components/
+├── pages/
+├── hooks/
+├── layouts/
+├── routes/
+├── services/
+└── main.jsx
+
+yaml
+Copy
+Edit
+
+---
+
+## 🔐 Authentication
+
+- Firebase Authentication (Email/Password)
+- JWT Token used for protected API routes
+- Role-based route protection (Admin/User)
+
+---
+
+## 📦 Installation (Local Setup)
+
+1. Clone the repository:
+git clone https://github.com/your-username/tour-booking-app.git
+cd tour-booking-app
+
+markdown
+Copy
+Edit
+
+2. Install dependencies:
+npm install
+
+markdown
+Copy
+Edit
+
+3. Create `.env` file and add Firebase & JWT keys:
+VITE_API_URL=your_backend_url
+VITE_FIREBASE_API_KEY=your_key
+...
+
+markdown
+Copy
+Edit
+
+4. Run the app:
+npm run dev
+
+yaml
+Copy
+Edit
+
+---
+
+## ✨ Key Highlights
+
+- 🔁 Real-time booking updates with MongoDB
+- 🔒 Secure login and route protection
+- 🎨 Clean and mobile-friendly design
+- 🧠 Organized codebase using reusable components and hooks
+
+---
+
+## 📧 Contact
+
+**Sabrina Islam**  
+✉️ sabrinaislamrity@gmail.com  
+📞 +8801869670330  
+🌍 Dhaka, Bangladesh  
+🔗 [GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
+
+---
+
+## 📜 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
