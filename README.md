@@ -34,6 +34,18 @@ A full-featured **MERN stack** application that allows users to explore, book, m
 - JWT for secured API access
 
 ---
+## 📸 Screenshots
+
+
+
+<img width="1179" height="853" alt="TOUR" src="https://github.com/user-attachments/assets/54c2222e-fb12-4766-859d-a8b56cf27b77" />
+
+
+
+
+
+
+
 
 ## 📂 Folder Structure (Client Side)
 
